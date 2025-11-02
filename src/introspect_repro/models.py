@@ -1,24 +1,7 @@
 from typing import Optional, List, Tuple, Dict, Any
-import os
 import torch, math
 from transformers import AutoModelForCausalLM, AutoTokenizer
-from . import activate_local_venv, load_project_env
-
-_HF_TOKEN_ENV_KEYS = (
-    "HUGGINGFACEHUB_API_TOKEN",
-    "HUGGINGFACE_TOKEN",
-    "HF_TOKEN",
-    "HF_API_TOKEN",
-)
-
-
-def _get_hf_token() -> Optional[str]:
-    """Look up a Hugging Face access token from common environment keys."""
-    for key in _HF_TOKEN_ENV_KEYS:
-        value = os.environ.get(key)
-        if value:
-            return value
-    return None
+from . import activate_local_venv, get_hf_token, load_project_env
 
 
 activate_local_venv()
@@ -38,7 +21,7 @@ def load_model_and_tokenizer(model_name: str, device: str = "cuda",
         elif dtype.lower() == "bfloat16" or dtype.lower() == "bf16":
             kwargs["torch_dtype"] = torch.bfloat16
 
-    hf_token = _get_hf_token()
+    hf_token = get_hf_token()
     token_kwargs: Dict[str, Any] = {}
     if hf_token:
         token_kwargs["token"] = hf_token

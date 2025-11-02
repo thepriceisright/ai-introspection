@@ -17,6 +17,13 @@ _PROJECT_ROOT: Path | None = None
 load_dotenv = None  # lazily imported
 dotenv_values = None  # lazily imported
 
+HF_TOKEN_ENV_KEYS = (
+    "HUGGINGFACEHUB_API_TOKEN",
+    "HUGGINGFACE_TOKEN",
+    "HF_TOKEN",
+    "HF_API_TOKEN",
+)
+
 
 def _find_dotenv(start: Path) -> Path | None:
     """Walk parent directories from `start` looking for a .env file."""
@@ -62,6 +69,7 @@ def load_project_env(dotenv_path: str | Path | None = None) -> None:
                 value = value.strip().strip('"').strip("'")
                 if key and (key not in os.environ or not os.environ.get(key)):
                     os.environ[key] = value
+    _normalise_hf_token_env()
     _ENV_INITIALISED = True
 
 
@@ -114,7 +122,20 @@ def _ensure_dotenv_import() -> None:
         dotenv_values = _values
 
 
+def _normalise_hf_token_env() -> None:
+    token = next((os.environ.get(k) for k in HF_TOKEN_ENV_KEYS if os.environ.get(k)), None)
+    if not token:
+        return
+    for key in HF_TOKEN_ENV_KEYS:
+        if not os.environ.get(key):
+            os.environ[key] = token
+
+
+def get_hf_token() -> str | None:
+    return next((os.environ.get(k) for k in HF_TOKEN_ENV_KEYS if os.environ.get(k)), None)
+
+
 activate_local_venv()
 load_project_env()
 
-__all__ = ["activate_local_venv", "load_project_env"]
+__all__ = ["HF_TOKEN_ENV_KEYS", "activate_local_venv", "get_hf_token", "load_project_env"]

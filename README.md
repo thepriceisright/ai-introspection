@@ -31,7 +31,7 @@ OPENROUTER_API_KEY="sk-or-..."
 HUGGINGFACEHUB_API_TOKEN="hf_..."
 ```
 
-Any of the following keys can be used for the Hugging Face token: `HUGGINGFACEHUB_API_TOKEN`, `HUGGINGFACE_TOKEN`, `HF_TOKEN`, `HF_API_TOKEN`. The token is passed to `transformers` when downloading gated checkpoints (e.g. Llama-3).
+Any of the following keys can be used for the Hugging Face token: `HUGGINGFACEHUB_API_TOKEN`, `HUGGINGFACE_TOKEN`, `HF_TOKEN`, `HF_API_TOKEN`. The loader normalises whichever one you set so `HUGGINGFACEHUB_API_TOKEN` is always populated, and the token is passed to `transformers` when downloading gated checkpoints (e.g. Llama-3).
 
 > **Tip:** If you add new keys to `.env`, rerun the “Load environment variables” cell in the notebooks so they are picked up by the kernel.
 

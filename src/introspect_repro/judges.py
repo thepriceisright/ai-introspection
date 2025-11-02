@@ -32,6 +32,21 @@ except ImportError:
                     os.environ.setdefault("VIRTUAL_ENV", str(venv_dir))
                     return
 
+    HF_TOKEN_ENV_KEYS = (
+        "HUGGINGFACEHUB_API_TOKEN",
+        "HUGGINGFACE_TOKEN",
+        "HF_TOKEN",
+        "HF_API_TOKEN",
+    )
+
+    def _normalise_hf_token_env() -> None:
+        token = next((os.environ.get(k) for k in HF_TOKEN_ENV_KEYS if os.environ.get(k)), None)
+        if not token:
+            return
+        for key in HF_TOKEN_ENV_KEYS:
+            if not os.environ.get(key):
+                os.environ[key] = token
+
     for parent in (module_dir, *module_dir.parents):
         env_path = parent / ".env"
         if env_path.exists():
@@ -48,6 +63,8 @@ except ImportError:
                     if key and (key not in os.environ or not os.environ.get(key)):
                         os.environ[key] = value
             break
+
+    _normalise_hf_token_env()
 
     _fallback_activate_local_venv()
 else:
