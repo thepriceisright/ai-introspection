@@ -12,10 +12,22 @@ except ImportError:
     except ImportError:
         load_dotenv = None  # type: ignore[assignment]
 
-    if load_dotenv is not None:
-        env_path = Path(__file__).resolve().parents[1] / ".env"
+    module_dir = Path(__file__).resolve().parent
+    for parent in (module_dir, *module_dir.parents):
+        env_path = parent / ".env"
         if env_path.exists():
-            load_dotenv(env_path, override=False)
+            if load_dotenv is not None:
+                load_dotenv(env_path, override=False)
+            else:
+                for line in env_path.read_text().splitlines():
+                    line = line.strip()
+                    if not line or line.startswith("#") or "=" not in line:
+                        continue
+                    key, value = line.split("=", 1)
+                    key = key.strip()
+                    value = value.strip().strip('"').strip("'")
+                    os.environ.setdefault(key, value)
+            break
 else:
     load_project_env()
 
