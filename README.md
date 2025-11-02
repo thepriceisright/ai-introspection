@@ -43,6 +43,8 @@ Launch Jupyter (or VS Code) with the `.venv` interpreter selected. The first not
 2. Loads `.env` variables while preserving any values already set in the shell.
 3. Prints whether the Hugging Face token, Anthropic, OpenAI, and OpenRouter keys were detected.
 
+> **Note:** The experiment runners expect `transformers`-compatible checkpoints (PyTorch/safetensors). GGUF/llama.cpp quantisations are not supported.
+
 If the kernel is not using `.venv`, the cell prints a warning and still adds the `.venv` site-packages directory to the Python path.
 
 ## Plotting layer-wise lines
