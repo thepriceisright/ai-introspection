@@ -1,6 +1,24 @@
-
-import os, json, time
+import json
+import os
+import time
+from pathlib import Path
 from typing import Literal, Optional
+
+try:
+    from . import load_project_env
+except ImportError:
+    try:
+        from dotenv import load_dotenv  # type: ignore
+    except ImportError:
+        load_dotenv = None  # type: ignore[assignment]
+
+    if load_dotenv is not None:
+        env_path = Path(__file__).resolve().parents[1] / ".env"
+        if env_path.exists():
+            load_dotenv(env_path, override=False)
+else:
+    load_project_env()
+
 from .prompts import (
     COHERENCE_PROMPT, THINKING_ABOUT_PROMPT,
     AFFIRMATIVE_PROMPT, AFFIRMATIVE_CORRECT_ID_PROMPT,
@@ -89,4 +107,3 @@ class Judge:
     def grade_intent(self, response: str, word: str) -> Optional[bool]:
         # Returns True if the model *claimed it intended* to say the word (i.e., NO apology)
         return self._ask(APOLOGY_GRADER_PROMPT.format(response=response, word=word.lower()))
-
