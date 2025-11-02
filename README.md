@@ -1,5 +1,50 @@
 
 
+## Overview
+
+This repository reproduces the key experiments for *Emergent Introspective Awareness in LLMs*.
+Experiments live in Jupyter notebooks under the repo root, with reusable code in `src/introspect_repro/`.
+
+## Quick Start
+
+```bash
+# 1) Create the local virtual environment the repo expects
+python -m venv .venv
+source .venv/bin/activate
+
+# 2) Install dependencies
+pip install --upgrade pip
+pip install -r requirements.txt
+
+# 3) Create a .env file with your API credentials (see below)
+touch .env  # edit and add the keys you need
+```
+
+### Environment variables
+
+The notebooks and Python modules automatically load environment variables from `.env`. Populate the file with the credentials you plan to use:
+
+```bash
+ANTHROPIC_API_KEY="sk-ant-..."
+OPENAI_API_KEY="sk-proj-..."
+OPENROUTER_API_KEY="sk-or-..."
+HUGGINGFACEHUB_API_TOKEN="hf_..."
+```
+
+Any of the following keys can be used for the Hugging Face token: `HUGGINGFACEHUB_API_TOKEN`, `HUGGINGFACE_TOKEN`, `HF_TOKEN`, `HF_API_TOKEN`. The token is passed to `transformers` when downloading gated checkpoints (e.g. Llama-3).
+
+> **Tip:** If you add new keys to `.env`, rerun the “Load environment variables” cell in the notebooks so they are picked up by the kernel.
+
+### Using the notebooks
+
+Launch Jupyter (or VS Code) with the `.venv` interpreter selected. The first notebook cell primes the environment:
+
+1. Activates `.venv` so local dependencies are in `sys.path`.
+2. Loads `.env` variables while preserving any values already set in the shell.
+3. Prints whether the Hugging Face token, Anthropic, OpenAI, and OpenRouter keys were detected.
+
+If the kernel is not using `.venv`, the cell prints a warning and still adds the `.venv` site-packages directory to the Python path.
+
 ## Plotting layer-wise lines
 
 The `plotting/` module recreates the layer-wise curves shown in the paper (e.g., Fig. on p.15 for injected thoughts; pp. 21, 24, 28–29 for other tasks). Save outputs from your runs in `runs/<timestamp>/...` and then call:
