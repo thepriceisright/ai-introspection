@@ -1,11 +1,12 @@
 import json
 import os
+import sys
 import time
 from pathlib import Path
 from typing import Literal, Optional
 
 try:
-    from . import load_project_env
+    from . import activate_local_venv, load_project_env
 except ImportError:
     try:
         from dotenv import load_dotenv  # type: ignore
@@ -13,6 +14,24 @@ except ImportError:
         load_dotenv = None  # type: ignore[assignment]
 
     module_dir = Path(__file__).resolve().parent
+
+    def _fallback_activate_local_venv() -> None:
+        python_version = f"python{sys.version_info.major}.{sys.version_info.minor}"
+        for parent in (module_dir, *module_dir.parents):
+            venv_dir = parent / ".venv"
+            if not venv_dir.exists():
+                continue
+            candidates = [
+                venv_dir / "lib" / python_version / "site-packages",
+                venv_dir / "Lib" / "site-packages",
+            ]
+            for site_dir in candidates:
+                if site_dir.exists():
+                    if str(site_dir) not in sys.path:
+                        sys.path.append(str(site_dir))
+                    os.environ.setdefault("VIRTUAL_ENV", str(venv_dir))
+                    return
+
     for parent in (module_dir, *module_dir.parents):
         env_path = parent / ".env"
         if env_path.exists():
@@ -26,9 +45,13 @@ except ImportError:
                     key, value = line.split("=", 1)
                     key = key.strip()
                     value = value.strip().strip('"').strip("'")
-                    os.environ.setdefault(key, value)
+                    if key and (key not in os.environ or not os.environ.get(key)):
+                        os.environ[key] = value
             break
+
+    _fallback_activate_local_venv()
 else:
+    activate_local_venv()
     load_project_env()
 
 from .prompts import (

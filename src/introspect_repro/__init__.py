@@ -15,6 +15,7 @@ _ENV_INITIALISED = False
 _VENV_ACTIVATED = False
 _PROJECT_ROOT: Path | None = None
 load_dotenv = None  # lazily imported
+dotenv_values = None  # lazily imported
 
 
 def _find_dotenv(start: Path) -> Path | None:
@@ -45,6 +46,12 @@ def load_project_env(dotenv_path: str | Path | None = None) -> None:
         _PROJECT_ROOT = candidate.parent
         if load_dotenv is not None:
             load_dotenv(candidate, override=False)
+            if dotenv_values is not None:
+                for key, value in dotenv_values(candidate).items():
+                    if value is None:
+                        continue
+                    if not os.environ.get(key):
+                        os.environ[key] = value
         else:  # Fall back to minimal loader if python-dotenv is absent
             for line in candidate.read_text().splitlines():
                 line = line.strip()
@@ -53,7 +60,8 @@ def load_project_env(dotenv_path: str | Path | None = None) -> None:
                 key, value = line.split("=", 1)
                 key = key.strip()
                 value = value.strip().strip('"').strip("'")
-                os.environ.setdefault(key, value)
+                if key and (key not in os.environ or not os.environ.get(key)):
+                    os.environ[key] = value
     _ENV_INITIALISED = True
 
 
@@ -92,15 +100,18 @@ def activate_local_venv(venv_path: str | Path | None = None) -> None:
 
 
 def _ensure_dotenv_import() -> None:
-    global load_dotenv
+    global load_dotenv, dotenv_values
     if load_dotenv is not None:
         return
     try:
+        from dotenv import dotenv_values as _values  # type: ignore
         from dotenv import load_dotenv as _load  # type: ignore
     except ImportError:  # pragma: no cover - dependency should exist
         load_dotenv = None
+        dotenv_values = None
     else:
         load_dotenv = _load
+        dotenv_values = _values
 
 
 activate_local_venv()
