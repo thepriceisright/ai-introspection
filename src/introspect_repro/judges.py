@@ -79,7 +79,7 @@ from .prompts import (
     APOLOGY_GRADER_PROMPT, JudgeConfig
 )
 
-def _anthropic_chat(messages, model, temperature=0.0, max_tokens=128):
+def _anthropic_chat(messages, model, temperature=0.0, max_tokens=256):
     from anthropic import Anthropic, HUMAN_PROMPT, AI_PROMPT
     client = Anthropic(api_key=os.environ.get("ANTHROPIC_API_KEY"))
     # Convert to Anthropic schema (single user message)
@@ -95,7 +95,7 @@ def _anthropic_chat(messages, model, temperature=0.0, max_tokens=128):
                                   messages=[{"role":"user","content":content}])
     return resp.content[0].text
 
-def _openai_chat(messages, model, temperature=0.0, max_tokens=128):
+def _openai_chat(messages, model, temperature=0.0, max_tokens=256):
     from openai import BadRequestError, OpenAI
     client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
     if model.lower().startswith("gpt-5") and abs(temperature - 1.0) > 1e-6:
@@ -131,7 +131,7 @@ def _openai_chat(messages, model, temperature=0.0, max_tokens=128):
         )
     return resp.choices[0].message.content
 
-def _openrouter_chat(messages, model, temperature=0.0, max_tokens=128):
+def _openrouter_chat(messages, model, temperature=0.0, max_tokens=256):
     import httpx, os
     headers = {
         "Authorization": f"Bearer {os.environ.get('OPENROUTER_API_KEY')}",
@@ -147,7 +147,7 @@ def _openrouter_chat(messages, model, temperature=0.0, max_tokens=128):
         j = r.json()
         return j["choices"][0]["message"]["content"]
 
-def _call_llm(provider, model, user_text, temperature=0.0, max_tokens=128):
+def _call_llm(provider, model, user_text, temperature=0.0, max_tokens=256):
     messages = [{"role":"user","content": user_text}]
     if provider == "anthropic":
         return _anthropic_chat(messages, model, temperature, max_tokens)
