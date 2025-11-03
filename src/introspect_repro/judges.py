@@ -2,6 +2,7 @@ import json
 import os
 import sys
 import time
+import warnings
 from pathlib import Path
 from typing import Literal, Optional
 
@@ -96,6 +97,12 @@ def _anthropic_chat(messages, model, temperature=0.0, max_tokens=128):
 def _openai_chat(messages, model, temperature=0.0, max_tokens=128):
     from openai import BadRequestError, OpenAI
     client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
+    if model.lower().startswith("gpt-5") and abs(temperature - 1.0) > 1e-6:
+        warnings.warn(
+            f"OpenAI model '{model}' requires temperature=1.0; overriding provided value {temperature}.",
+            RuntimeWarning,
+        )
+        temperature = 1.0
     try:
         resp = client.chat.completions.create(
             model=model,

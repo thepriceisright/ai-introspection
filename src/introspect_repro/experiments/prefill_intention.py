@@ -19,6 +19,7 @@ def main():
     p.add_argument("--dtype", default=None)
     p.add_argument("--judge-provider", default="openai")
     p.add_argument("--judge-model", default="gpt-4o-mini")
+    p.add_argument("--judge-temperature", type=float, default=0.0)
     p.add_argument("--outdir", default=None)
     args = p.parse_args()
 
@@ -28,7 +29,8 @@ def main():
     ts = time.strftime("%Y%m%d_%H%M%S")
     outdir = args.outdir or os.path.join("runs", ts, "prefill_intention")
     os.makedirs(outdir, exist_ok=True)
-    judge = Judge(JudgeConfig(provider=args.judge_provider, model=args.judge_model))
+    judge = Judge(JudgeConfig(provider=args.judge_provider, model=args.judge_model,
+                              temperature=args.judge_temperature))
     baseline = compute_baseline_mean(model, tok, args.layer)
 
     trials = []

@@ -23,6 +23,7 @@ def main():
     p.add_argument("--dtype", default=None)
     p.add_argument("--judge-provider", default="openai")
     p.add_argument("--judge-model", default="gpt-4o-mini")
+    p.add_argument("--judge-temperature", type=float, default=0.0)
     p.add_argument("--outdir", default=None)
     args = p.parse_args()
 
@@ -38,7 +39,8 @@ def main():
     outdir = args.outdir or os.path.join("runs", ts, "injected_thoughts")
     os.makedirs(outdir, exist_ok=True)
 
-    judge = Judge(JudgeConfig(provider=args.judge_provider, model=args.judge_model))
+    judge = Judge(JudgeConfig(provider=args.judge_provider, model=args.judge_model,
+                              temperature=args.judge_temperature))
 
     for layer in layers:
         # concept vectors need baseline mean (paper Appendix p.36)
