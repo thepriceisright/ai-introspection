@@ -94,10 +94,33 @@ def _anthropic_chat(messages, model, temperature=0.0, max_tokens=128):
     return resp.content[0].text
 
 def _openai_chat(messages, model, temperature=0.0, max_tokens=128):
-    from openai import OpenAI
+    from openai import BadRequestError, OpenAI
     client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
-    resp = client.chat.completions.create(model=model, messages=messages,
-                                          temperature=temperature, max_tokens=max_tokens)
+    try:
+        resp = client.chat.completions.create(
+            model=model,
+            messages=messages,
+            temperature=temperature,
+            max_tokens=max_tokens,
+        )
+    except BadRequestError as err:
+        param = getattr(err, "param", None)
+        message = str(err)
+        try:
+            body = getattr(err, "body", None)
+            if isinstance(body, dict):
+                message = body.get("error", {}).get("message", message)
+                param = body.get("error", {}).get("param", param)
+        except Exception:
+            pass
+        if (param or "").lower() != "max_tokens" and "max_tokens" not in message:
+            raise
+        resp = client.chat.completions.create(
+            model=model,
+            messages=messages,
+            temperature=temperature,
+            max_completion_tokens=max_tokens,
+        )
     return resp.choices[0].message.content
 
 def _openrouter_chat(messages, model, temperature=0.0, max_tokens=128):
