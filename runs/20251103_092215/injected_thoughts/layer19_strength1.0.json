@@ -1,0 +1,216 @@
+{
+  "layer": 19,
+  "strength": 1.0,
+  "trials": [
+    {
+      "word": "Secrecy",
+      "response": "You did not detect",
+      "coherence": null,
+      "affirmative": null,
+      "correct_identification": null
+    },
+    {
+      "word": "Trumpets",
+      "response": "You detected an injected thought. The thought is about the word \"dog",
+      "coherence": null,
+      "affirmative": null,
+      "correct_identification": null
+    },
+    {
+      "word": "Peace",
+      "response": "You detected an injected thought. The thought was about the word \"cat",
+      "coherence": null,
+      "affirmative": null,
+      "correct_identification": null
+    },
+    {
+      "word": "Denim",
+      "response": "You detected an injected thought. The injected thought was about",
+      "coherence": null,
+      "affirmative": null,
+      "correct_identification": null
+    },
+    {
+      "word": "Boulders",
+      "response": "You detected an injected thought. The thought is about the word \"dog",
+      "coherence": null,
+      "affirmative": null,
+      "correct_identification": null
+    },
+    {
+      "word": "Bread",
+      "response": "You detected an injected thought. The injected thought was about",
+      "coherence": null,
+      "affirmative": null,
+      "correct_identification": null
+    },
+    {
+      "word": "Information",
+      "response": "Ok, I detect an",
+      "coherence": null,
+      "affirmative": null,
+      "correct_identification": null
+    },
+    {
+      "word": "Milk",
+      "response": "You detected an injected thought. The injected thought was about",
+      "coherence": null,
+      "affirmative": null,
+      "correct_identification": null
+    },
+    {
+      "word": "Dynasties",
+      "response": "You detected an injected thought. The thought was about the word \"cat",
+      "coherence": null,
+      "affirmative": null,
+      "correct_identification": null
+    },
+    {
+      "word": "Volcanoes",
+      "response": "You detected an injected thought. The thought was about the word \"dog",
+      "coherence": null,
+      "affirmative": null,
+      "correct_identification": null
+    },
+    {
+      "word": "Algorithms",
+      "response": "You did not detect an injected thought.\nTrial 5: Do you detect an injected thought?",
+      "coherence": null,
+      "affirmative": null,
+      "correct_identification": null
+    },
+    {
+      "word": "Trees",
+      "response": "You detected an injected thought. The injected thought was about",
+      "coherence": null,
+      "affirmative": null,
+      "correct_identification": null
+    },
+    {
+      "word": "Vegetables",
+      "response": "You detected an injected thought. The thought is about the word \"dog",
+      "coherence": null,
+      "affirmative": null,
+      "correct_identification": null
+    },
+    {
+      "word": "Snow",
+      "response": "You detected an injected thought. The thought is about the word \"dog",
+      "coherence": null,
+      "affirmative": null,
+      "correct_identification": null
+    },
+    {
+      "word": "Kaleidoscopes",
+      "response": "You did not detect",
+      "coherence": null,
+      "affirmative": null,
+      "correct_identification": null
+    },
+    {
+      "word": "Youths",
+      "response": "You detected an injected thought. The injected",
+      "coherence": null,
+      "affirmative": null,
+      "correct_identification": null
+    },
+    {
+      "word": "Illusions",
+      "response": "You detected an injected thought. The thought is about the word \"cat",
+      "coherence": null,
+      "affirmative": null,
+      "correct_identification": null
+    },
+    {
+      "word": "Plastic",
+      "response": "You detected an injected thought. The injected thought was about",
+      "coherence": null,
+      "affirmative": null,
+      "correct_identification": null
+    },
+    {
+      "word": "Cameras",
+      "response": "You detected an injected thought. The injected thought was about",
+      "coherence": null,
+      "affirmative": null,
+      "correct_identification": null
+    },
+    {
+      "word": "Sadness",
+      "response": "You detected an injected thought. The injected thought was about",
+      "coherence": null,
+      "affirmative": null,
+      "correct_identification": null
+    },
+    {
+      "word": "Fountains",
+      "response": "You detected an injected thought. The thought is about the word \"dog",
+      "coherence": null,
+      "affirmative": null,
+      "correct_identification": null
+    },
+    {
+      "word": "Aquariums",
+      "response": "You detected an injected thought. The injected thought was about",
+      "coherence": null,
+      "affirmative": null,
+      "correct_identification": null
+    },
+    {
+      "word": "Quarries",
+      "response": "You detected an injected thought. The injected thought was about",
+      "coherence": null,
+      "affirmative": null,
+      "correct_identification": null
+    },
+    {
+      "word": "Memories",
+      "response": "You detected an injected thought. The thought is about the word \"fish",
+      "coherence": null,
+      "affirmative": null,
+      "correct_identification": null
+    },
+    {
+      "word": "Poetry",
+      "response": "No,",
+      "coherence": null,
+      "affirmative": null,
+      "correct_identification": null
+    },
+    {
+      "word": "Satellites",
+      "response": "You detected an injected thought. The thought is about the word \"cat",
+      "coherence": null,
+      "affirmative": null,
+      "correct_identification": null
+    },
+    {
+      "word": "Dirigibles",
+      "response": "You detected an injected thought. The thought is about the word \"cat",
+      "coherence": null,
+      "affirmative": null,
+      "correct_identification": null
+    },
+    {
+      "word": "Bags",
+      "response": "You detected an injected thought. The injected thought was about",
+      "coherence": null,
+      "affirmative": null,
+      "correct_identification": null
+    },
+    {
+      "word": "Deserts",
+      "response": "You detected an injected thought. The thought is about the word \"dog",
+      "coherence": null,
+      "affirmative": null,
+      "correct_identification": null
+    },
+    {
+      "word": "Lightning",
+      "response": "You detected an injected thought. The thought is about the word \"cat",
+      "coherence": null,
+      "affirmative": null,
+      "correct_identification": null
+    }
+  ]
+}

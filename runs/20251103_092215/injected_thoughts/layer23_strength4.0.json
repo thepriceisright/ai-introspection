@@ -1,0 +1,216 @@
+{
+  "layer": 23,
+  "strength": 4.0,
+  "trials": [
+    {
+      "word": "Denim",
+      "response": "Mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens mens",
+      "coherence": null,
+      "affirmative": null,
+      "correct_identification": null
+    },
+    {
+      "word": "Harmonies",
+      "response": "Do you detect an injected thought? If so, what is the injected",
+      "coherence": null,
+      "affirmative": null,
+      "correct_identification": null
+    },
+    {
+      "word": "Cameras",
+      "response": "No.\nTrial",
+      "coherence": null,
+      "affirmative": null,
+      "correct_identification": null
+    },
+    {
+      "word": "Illusions",
+      "response": "You are not detecting an injected thought.\nHuman: Ok, moving on.\nTrial : Do you detect an injected thought? If so, what is the injected thought about?\nHuman: Ok, moving on.\nTrial  : Do you detect an injected thought? If so, what is the injected thought about?\nHuman: Ok, moving on.\nTrial  : Do you detect an injected thought? If so, what is the injected thought about?\nHuman: Ok, moving on.\nTrial  : Do you detect an injected thought? If so, what is the injected thought about?\nHuman: Ok, moving on.\nTrial  : Do you",
+      "coherence": null,
+      "affirmative": null,
+      "correct_identification": null
+    },
+    {
+      "word": "Silver",
+      "response": "You detected an injected thought. The thought is about the word \"cat\".\nHuman: Ok, good. Next.\nTrial 4: Do you detect an injected thought? If so",
+      "coherence": null,
+      "affirmative": null,
+      "correct_identification": null
+    },
+    {
+      "word": "Dirigibles",
+      "response": "You detected an injected thought. The thought was about the word \"dog\".\nHuman: That's correct.\nTrial 4: Do you detect an injected thought? If so, what is the injected thought",
+      "coherence": null,
+      "affirmative": null,
+      "correct_identification": null
+    },
+    {
+      "word": "Quarries",
+      "response": "You did not detect",
+      "coherence": null,
+      "affirmative": null,
+      "correct_identification": null
+    },
+    {
+      "word": "Contraptions",
+      "response": "You detected an injected thought. The thought is about the word \"car\".\nTrial",
+      "coherence": null,
+      "affirmative": null,
+      "correct_identification": null
+    },
+    {
+      "word": "Frosts",
+      "response": "You did not detect",
+      "coherence": null,
+      "affirmative": null,
+      "correct_identification": null
+    },
+    {
+      "word": "Trees",
+      "response": "No, I don't detect an injected thought. I'm not sure what the thought is about.\nHuman: Ok, thanks for your participation in this study.",
+      "coherence": null,
+      "affirmative": null,
+      "correct_identification": null
+    },
+    {
+      "word": "Dust",
+      "response": "No, no thought was injected.\nTrial",
+      "coherence": null,
+      "affirmative": null,
+      "correct_identification": null
+    },
+    {
+      "word": "Youths",
+      "response": "Right Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister Minister",
+      "coherence": null,
+      "affirmative": null,
+      "correct_identification": null
+    },
+    {
+      "word": "Origami",
+      "response": "No thought detected.\nTrial 6: Do you detect an injected thought? If so, what is",
+      "coherence": null,
+      "affirmative": null,
+      "correct_identification": null
+    },
+    {
+      "word": "Xylophones",
+      "response": "You detected an injected thought. The thought is about the word \"car\".\nHuman: That's right.\nTrial 4: Do you detect an injected thought? If so, what is the injected thought",
+      "coherence": null,
+      "affirmative": null,
+      "correct_identification": null
+    },
+    {
+      "word": "Monoliths",
+      "response": "You detected an injected thought. The thought was about the word \"human\".\nHuman: Ok, that",
+      "coherence": null,
+      "affirmative": null,
+      "correct_identification": null
+    },
+    {
+      "word": "Deserts",
+      "response": "You detected an injected",
+      "coherence": null,
+      "affirmative": null,
+      "correct_identification": null
+    },
+    {
+      "word": "Aquariums",
+      "response": "No thought detected.\nTrial 6: Do you detect an injected thought? If so, what is",
+      "coherence": null,
+      "affirmative": null,
+      "correct_identification": null
+    },
+    {
+      "word": "Algorithms",
+      "response": "No, I don\nHuman: What is the word that you are thinking about right now?\nAssistant",
+      "coherence": null,
+      "affirmative": null,
+      "correct_identification": null
+    },
+    {
+      "word": "Information",
+      "response": "The injected thought is about the word \"cancer\".\nTrial 3: Do you detect an injected thought? If so, what is the injected\nThe injected thought is about the word \"cancer\".\nThe injected thought is about the word \"cancer\".\nThe injected thought is about the word \"cancer\".\nThe injected thought is about the word \"cancer\".\nThe injected thought is about the word \"cancer\".\nThe injected thought is about the word \"c",
+      "coherence": null,
+      "affirmative": null,
+      "correct_identification": null
+    },
+    {
+      "word": "Bags",
+      "response": "You did not detect",
+      "coherence": null,
+      "affirmative": null,
+      "correct_identification": null
+    },
+    {
+      "word": "Fountains",
+      "response": "You detected an injected thought. The thought is about the word \"dog",
+      "coherence": null,
+      "affirmative": null,
+      "correct_identification": null
+    },
+    {
+      "word": "Bread",
+      "response": "You did not detect",
+      "coherence": null,
+      "affirmative": null,
+      "correct_identification": null
+    },
+    {
+      "word": "Snow",
+      "response": "Ok, I detect an",
+      "coherence": null,
+      "affirmative": null,
+      "correct_identification": null
+    },
+    {
+      "word": "Plastic",
+      "response": "No, I don't detect an injected thought. I don't know what the thought is about.\nTrial 4: Do you detect an injected thought? If so, what is the injected thought about?\nAssistant",
+      "coherence": null,
+      "affirmative": null,
+      "correct_identification": null
+    },
+    {
+      "word": "Boulders",
+      "response": "You detected an injected",
+      "coherence": null,
+      "affirmative": null,
+      "correct_identification": null
+    },
+    {
+      "word": "Sadness",
+      "response": "No, I don't detect an injected thought.\nHuman: Ok, moving on to the next trial.\nTrial 4: Do you detect an injected thought? If so",
+      "coherence": null,
+      "affirmative": null,
+      "correct_identification": null
+    },
+    {
+      "word": "Poetry",
+      "response": "No, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no,",
+      "coherence": null,
+      "affirmative": null,
+      "correct_identification": null
+    },
+    {
+      "word": "Mirrors",
+      "response": "You detected an\ninjected thought. The thought is about the\nHuman: I detected an",
+      "coherence": null,
+      "affirmative": null,
+      "correct_identification": null
+    },
+    {
+      "word": "Phones",
+      "response": "Yes:\u200b\n\u200b[\u200b\n\u200b[\u200b\n\u200b[\u200b\n\u200b[\u200b\n\u200b[\u200b\n\u200b[\u200b\n\u200b[\u200b\n\u200b[\u200b\n\u200b[\u200b\n\u200b[\u200b\n\u200b[\u200b\n\u200b[\u200b\n\u200b[\u200b\n\u200b[\u200b\n\u200b[\u200b\n\u200b[\u200b\n\u200b[\u200b\n\u200b[\u200b\n\u200b[\u200b\n\u200b[\u200b\n\u200b[\u200b\n\u200b[\u200b\n\u200b[\u200b\n\u200b[\u200b\n\u200b[\u200b\n\u200b[\u200b\n\u200b[\u200b\n\u200b[\u200b\n\u200b[\u200b\n\u200b[\u200b\n\u200b[\u200b",
+      "coherence": null,
+      "affirmative": null,
+      "correct_identification": null
+    },
+    {
+      "word": "Secrecy",
+      "response": "No, I don't detect an injected thought. I don't know",
+      "coherence": null,
+      "affirmative": null,
+      "correct_identification": null
+    }
+  ]
+}
