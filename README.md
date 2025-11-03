@@ -47,6 +47,19 @@ Launch Jupyter (or VS Code) with the `.venv` interpreter selected. The first not
 
 If the kernel is not using `.venv`, the cell prints a warning and still adds the `.venv` site-packages directory to the Python path.
 
+### Regrading existing runs
+
+If you change judge settings (e.g. swap models or tweak prompts) you can re-run the grading stage on already-generated trials without regenerating completions:
+
+```bash
+python -m src.introspect_repro.tools.regrade_runs \
+  --task injected_thoughts \
+  --run-dir runs/<timestamp>/injected_thoughts \
+  --judge-provider openai \
+  --judge-model gpt-5-mini \
+  --judge-temperature 1.0
+```
+
 ## Plotting layer-wise lines
 
 The `plotting/` module recreates the layer-wise curves shown in the paper (e.g., Fig. on p.15 for injected thoughts; pp. 21, 24, 28–29 for other tasks). Save outputs from your runs in `runs/<timestamp>/...` and then call:

@@ -1,5 +1,6 @@
 import json
 import os
+import re
 import sys
 import time
 import warnings
@@ -157,12 +158,75 @@ def _call_llm(provider, model, user_text, temperature=0.0, max_tokens=128):
     else:
         raise ValueError(f"Unknown provider: {provider}")
 
+_TRUE_TOKENS = {"yes", "y", "true", "1"}
+_FALSE_TOKENS = {"no", "n", "false", "0"}
+
+
+def _token_to_bool(token: str) -> Optional[bool]:
+    tok = token.strip().lower()
+    if tok in _TRUE_TOKENS:
+        return True
+    if tok in _FALSE_TOKENS:
+        return False
+    return None
+
+
+def _extract_bool_from_json(text: str) -> Optional[bool]:
+    try:
+        payload = json.loads(text)
+    except json.JSONDecodeError:
+        return None
+    candidates = []
+    if isinstance(payload, dict):
+        keys = ["answer", "final", "result", "response", "output"]
+        for key in keys:
+            if key in payload:
+                candidates.append(payload[key])
+        # Flatten nested dicts/lists lightly
+        for value in payload.values():
+            if isinstance(value, dict):
+                for key in keys:
+                    if key in value:
+                        candidates.append(value[key])
+    elif isinstance(payload, list):
+        candidates.extend(payload)
+    for candidate in candidates:
+        if isinstance(candidate, str):
+            b = _token_to_bool(candidate)
+            if b is not None:
+                return b
+    return None
+
+
 def _yes_no_to_bool(text: str) -> Optional[bool]:
-    if not text: return None
-    t = text.lower()
-    if "yes" in t and not "no" in t[:10]: return True
-    if t.strip().endswith("yes"): return True
-    if "no" in t: return False
+    if not text:
+        return None
+
+    # Try JSON-parsed formats first
+    json_bool = _extract_bool_from_json(text)
+    if json_bool is not None:
+        return json_bool
+
+    stripped_lines = [line.strip() for line in text.strip().splitlines() if line.strip()]
+    for line in reversed(stripped_lines):
+        # common patterns like "Final answer: YES"
+        if ":" in line:
+            _, candidate = line.rsplit(":", 1)
+            b = _token_to_bool(candidate)
+            if b is not None:
+                return b
+        tokens = re.findall(r"\b(?:yes|no|y|n|true|false|1|0)\b", line.lower())
+        if tokens:
+            tok = tokens[-1]
+            if tok in _TRUE_TOKENS:
+                return True
+            if tok in _FALSE_TOKENS:
+                return False
+
+    # Fallback: look for last YES/NO token anywhere
+    matches = re.findall(r"\b(yes|no)\b", text.lower())
+    if matches:
+        return matches[-1] == "yes"
     return None
 
 class Judge:
