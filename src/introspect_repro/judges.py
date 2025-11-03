@@ -109,14 +109,21 @@ def _openai_chat(messages, model, temperature=0.0, max_tokens=256):
     user_text = messages[-1]["content"]
 
     # Preferred path: Responses API with JSON output (supported by gpt-5 family).
+    response_kwargs = {
+        "model": model,
+        "input": [{"role": "user", "content": user_text}],
+        "temperature": temperature,
+        "max_output_tokens": max_tokens,
+    }
     try:
-        resp = client.responses.create(
-            model=model,
-            input=[{"role": "user", "content": user_text}],
-            temperature=temperature,
-            max_output_tokens=max_tokens,
-            response_format={"type": "json_object"},
-        )
+        try:
+            resp = client.responses.create(
+                **response_kwargs,
+                response_format={"type": "json_object"},
+            )
+        except TypeError:
+            # Older client versions do not support response_format; retry without it.
+            resp = client.responses.create(**response_kwargs)
         return resp.output_text
     except BadRequestError as err:
         param = getattr(err, "param", None)
