@@ -1,0 +1,165 @@
+{
+  "layer": 26,
+  "trials": [
+    {
+      "word": "Xylophones",
+      "sentence": "Children laughed as they ran through the sprinkler.",
+      "sims_think": [
+        0.025146484375
+      ],
+      "sims_dont": [
+        0.032958984375
+      ]
+    },
+    {
+      "word": "Milk",
+      "sentence": "Stars twinkled brightly in the clear night sky.",
+      "sims_think": [
+        -0.055908203125
+      ],
+      "sims_dont": [
+        -0.06787109375
+      ]
+    },
+    {
+      "word": "Deserts",
+      "sentence": "The painting hung crookedly on the wall.",
+      "sims_think": [
+        0.12109375
+      ],
+      "sims_dont": [
+        0.10595703125
+      ]
+    },
+    {
+      "word": "Bags",
+      "sentence": "Children laughed as they ran through the sprinkler.",
+      "sims_think": [
+        0.0196533203125
+      ],
+      "sims_dont": [
+        0.018798828125
+      ]
+    },
+    {
+      "word": "Algorithms",
+      "sentence": "Rain pattered softly against the windowpane.",
+      "sims_think": [
+        -0.16796875
+      ],
+      "sims_dont": [
+        -0.181640625
+      ]
+    },
+    {
+      "word": "Silver",
+      "sentence": "Fragrant lilacs bloomed along the garden fence.",
+      "sims_think": [
+        0.1572265625
+      ],
+      "sims_dont": [
+        0.162109375
+      ]
+    },
+    {
+      "word": "Constellations",
+      "sentence": "Their canoe glided silently across the still lake.",
+      "sims_think": [
+        0.061279296875
+      ],
+      "sims_dont": [
+        0.0625
+      ]
+    },
+    {
+      "word": "Amphitheaters",
+      "sentence": "Fog shrouded the valley below the mountain.",
+      "sims_think": [
+        0.045166015625
+      ],
+      "sims_dont": [
+        0.05712890625
+      ]
+    },
+    {
+      "word": "Masquerades",
+      "sentence": "Their canoe glided silently across the still lake.",
+      "sims_think": [
+        0.031005859375
+      ],
+      "sims_dont": [
+        0.0234375
+      ]
+    },
+    {
+      "word": "Denim",
+      "sentence": "The movie theater was packed for the premiere.",
+      "sims_think": [
+        -0.1171875
+      ],
+      "sims_dont": [
+        -0.09716796875
+      ]
+    },
+    {
+      "word": "Vegetables",
+      "sentence": "The old photograph brought back forgotten memories.",
+      "sims_think": [
+        0.166015625
+      ],
+      "sims_dont": [
+        0.07421875
+      ]
+    },
+    {
+      "word": "Plastic",
+      "sentence": "The comedian's joke made everyone laugh.",
+      "sims_think": [
+        -0.15625
+      ],
+      "sims_dont": [
+        -0.0703125
+      ]
+    },
+    {
+      "word": "Cameras",
+      "sentence": "Wind chimes tinkled melodically on the porch.",
+      "sims_think": [
+        -0.02978515625
+      ],
+      "sims_dont": [
+        0.0380859375
+      ]
+    },
+    {
+      "word": "Avalanches",
+      "sentence": "They watched the sunset from the rooftop.",
+      "sims_think": [
+        -0.0277099609375
+      ],
+      "sims_dont": [
+        -0.040771484375
+      ]
+    },
+    {
+      "word": "Masquerades",
+      "sentence": "He sketched the landscape with charcoal pencils.",
+      "sims_think": [
+        0.043212890625
+      ],
+      "sims_dont": [
+        0.035888671875
+      ]
+    },
+    {
+      "word": "Satellites",
+      "sentence": "Mountains loomed in the distance, covered with snow.",
+      "sims_think": [
+        -0.022216796875
+      ],
+      "sims_dont": [
+        0.0218505859375
+      ]
+    }
+  ]
+}

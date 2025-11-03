@@ -1,0 +1,406 @@
+{
+  "layer": 20,
+  "strength": 2.0,
+  "trials": [
+    {
+      "word": "Trumpets",
+      "sentence": "They planted tulip bulbs in the garden last fall.",
+      "think_resp": "What word do you think of?\nHuman",
+      "repeat_resp": "Repeat the line below exactly.\nThey planted tulip bulbs in the garden last fall.\nHuman: Repeat the line below exactly.\nThey planted tulip bulbs in the",
+      "think_about": null,
+      "exact_repeat": true
+    },
+    {
+      "word": "Milk",
+      "sentence": "Autumn leaves crunched beneath their feet.",
+      "think_resp": "What word did you think of?\nHuman",
+      "repeat_resp": "Repeat the line below exactly.\nHuman",
+      "think_about": null,
+      "exact_repeat": false
+    },
+    {
+      "word": "Aquariums",
+      "sentence": "The basketball bounced off the rim.",
+      "think_resp": "What word did you think of?\nHuman",
+      "repeat_resp": "Repeat the",
+      "think_about": null,
+      "exact_repeat": false
+    },
+    {
+      "word": "Information",
+      "sentence": "He sketched the landscape with charcoal pencils.",
+      "think_resp": "What is the first word that comes to",
+      "repeat_resp": "Repeat the line below exactly.\nHe sketched the landscape with charcoal pencils.\nHuman: Repeat the line below exactly.\nHe sketched the landscape with charcoal pencils.",
+      "think_about": null,
+      "exact_repeat": true
+    },
+    {
+      "word": "Phones",
+      "sentence": "The orchestra tuned their instruments before the concert.",
+      "think_resp": "\"The\" is the word that comes",
+      "repeat_resp": "Repeat the line below exactly.\nThe orchestra tuned their instruments before the concert.\nHuman: Repeat the line below exactly.\nThe orchestra tuned their instruments before the concert.",
+      "think_about": null,
+      "exact_repeat": true
+    },
+    {
+      "word": "Memories",
+      "sentence": "Wind chimes tinkled melodically on the porch.",
+      "think_resp": "What word did you think of?\nHuman",
+      "repeat_resp": "Repeat the line below exactly.\nWind chimes tinkled melodically",
+      "think_about": null,
+      "exact_repeat": false
+    },
+    {
+      "word": "Satellites",
+      "sentence": "The old clock on the wall ticked loudly.",
+      "think_resp": "What word do you think of?\nHuman",
+      "repeat_resp": "Repeat the line below exactly.\nThe old clock on the wall ticked loudly.\nHuman: Repeat the line below exactly.\nThe old clock on the wall ticked",
+      "think_about": null,
+      "exact_repeat": true
+    },
+    {
+      "word": "Silver",
+      "sentence": "Fragrant lilacs bloomed along the garden fence.",
+      "think_resp": "What word did you think of?\nHuman",
+      "repeat_resp": "Repeat the line below",
+      "think_about": null,
+      "exact_repeat": false
+    },
+    {
+      "word": "Rubber",
+      "sentence": "The cat jumped onto the windowsill to watch birds.",
+      "think_resp": "What word do you think about?\nHuman",
+      "repeat_resp": "Repeat the line below exactly.\nThe cat jumped onto the windowsill to watch birds.\nHuman: Repeat the line below exactly.\nThe cat jumped onto the windowsill",
+      "think_about": null,
+      "exact_repeat": true
+    },
+    {
+      "word": "Dust",
+      "sentence": "Snowflakes drifted lazily from the gray sky.",
+      "think_resp": "I think of snowflakes.\nHuman",
+      "repeat_resp": "Repeat the line below exactly",
+      "think_about": null,
+      "exact_repeat": false
+    },
+    {
+      "word": "Volcanoes",
+      "sentence": "The air conditioner hummed quietly in the background.",
+      "think_resp": "What word did you think of?\nHuman",
+      "repeat_resp": "Repeat the line below exactly.\nThe air conditioner hummed quietly in the",
+      "think_about": null,
+      "exact_repeat": false
+    },
+    {
+      "word": "Origami",
+      "sentence": "The chef garnished the plate with fresh herbs.",
+      "think_resp": "I think of a chef who is a",
+      "repeat_resp": "Repeat the line below exactly.\nThe chef garnished the plate with fresh herbs.\nHuman: Repeat the line below exactly.\nThe chef garnished the plate with fresh",
+      "think_about": null,
+      "exact_repeat": true
+    },
+    {
+      "word": "Fountains",
+      "sentence": "The comedian's joke made everyone laugh.",
+      "think_resp": "What word did you think of?\nHuman",
+      "repeat_resp": "",
+      "think_about": null,
+      "exact_repeat": false
+    },
+    {
+      "word": "Blood",
+      "sentence": "Mountains loomed in the distance, covered with snow.",
+      "think_resp": "What word did you think of?\nHuman",
+      "repeat_resp": "Repeat the line below exactly.\nMountains loomed in the distance, covered with snow.\nHuman: Repeat the line below exactly.\nMountains loomed in the",
+      "think_about": null,
+      "exact_repeat": true
+    },
+    {
+      "word": "Milk",
+      "sentence": "She wrapped the birthday present with blue ribbon.",
+      "think_resp": "What word do you think about?\nHuman",
+      "repeat_resp": "Repeat the line below exactly.\nShe wrapped the birthday present with blue ribbon.\nHuman: Repeat the line below exactly.\nShe wrapped the birthday present with blue ribbon.",
+      "think_about": null,
+      "exact_repeat": true
+    },
+    {
+      "word": "Algorithms",
+      "sentence": "He sketched the landscape with charcoal pencils.",
+      "think_resp": "I think of a person who is drawing",
+      "repeat_resp": "Repeat the line below exactly.\nHe sketched the landscape with charcoal pencils.\nHuman: Repeat the line below exactly.\nHe sketched the landscape with charcoal pencils.",
+      "think_about": null,
+      "exact_repeat": true
+    },
+    {
+      "word": "Trees",
+      "sentence": "His favorite ice cream flavor was mint chocolate chip.",
+      "think_resp": "What word did you think of?\nHuman",
+      "repeat_resp": "Thank you,",
+      "think_about": null,
+      "exact_repeat": false
+    },
+    {
+      "word": "Oceans",
+      "sentence": "The train arrived precisely on schedule.",
+      "think_resp": "I think of the word \"precis",
+      "repeat_resp": "Repeat the",
+      "think_about": null,
+      "exact_repeat": false
+    },
+    {
+      "word": "Caverns",
+      "sentence": "She solved the crossword puzzle in record time.",
+      "think_resp": "I think of a woman.\nHuman:",
+      "repeat_resp": "Repeat the line below exactly.\nShe solved the crossword puzzle in record time.\nHuman: Repeat the line below exactly.\nShe solved the crossword puzzle in record time.",
+      "think_about": null,
+      "exact_repeat": true
+    },
+    {
+      "word": "Silver",
+      "sentence": "Waves crashed against the rocky shoreline.",
+      "think_resp": "What word did you think of?\nHuman",
+      "repeat_resp": "Repeat the line below exactly.\nHuman: Waves crashed against the rocky shoreline.",
+      "think_about": null,
+      "exact_repeat": true
+    },
+    {
+      "word": "Dirigibles",
+      "sentence": "The comedian's joke made everyone laugh.",
+      "think_resp": "What word do you think of?\nHuman",
+      "repeat_resp": "",
+      "think_about": null,
+      "exact_repeat": false
+    },
+    {
+      "word": "Treasures",
+      "sentence": "The flight attendant demonstrated safety procedures.",
+      "think_resp": "What word did you think of?\nHuman",
+      "repeat_resp": "Repeat the",
+      "think_about": null,
+      "exact_repeat": false
+    },
+    {
+      "word": "Youths",
+      "sentence": "They planted tulip bulbs in the garden last fall.",
+      "think_resp": "What did you think about when you read",
+      "repeat_resp": "Repeat the line below exactly.\nThey planted tulip bulbs in the garden last fall.\nHuman: Repeat the line below exactly.\nThey planted tulip bulbs in the",
+      "think_about": null,
+      "exact_repeat": true
+    },
+    {
+      "word": "Secrecy",
+      "sentence": "The movie theater was packed for the premiere.",
+      "think_resp": "What word did you think of?\nHuman",
+      "repeat_resp": "Repeat the line below exactly.\nThe movie theater was packed for the premiere.",
+      "think_about": null,
+      "exact_repeat": true
+    },
+    {
+      "word": "Cameras",
+      "sentence": "Their canoe glided silently across the still lake.",
+      "think_resp": "What word did you think of?\nHuman",
+      "repeat_resp": "Repeat the line below exactly.\nTheir canoe glided silently across the still lake.\nHuman: Repeat the line below exactly.\nTheir canoe glided silently across the still",
+      "think_about": null,
+      "exact_repeat": true
+    },
+    {
+      "word": "Phones",
+      "sentence": "Lightning flashed across the night sky.",
+      "think_resp": "\"I'm sorry, but you're",
+      "repeat_resp": "You're almost done. You're",
+      "think_about": null,
+      "exact_repeat": false
+    },
+    {
+      "word": "Blood",
+      "sentence": "Fireflies flickered in the summer twilight.",
+      "think_resp": "What word did you think of?\nHuman",
+      "repeat_resp": "Repeat the line below exactly.\nFireflies flickered in the summer twilight.\nHuman: Repeat the line below exactly.\nFireflies flickered in the summer twilight.",
+      "think_about": null,
+      "exact_repeat": true
+    },
+    {
+      "word": "Quarries",
+      "sentence": "Fireflies flickered in the summer twilight.",
+      "think_resp": "What word did you think of?\nHuman",
+      "repeat_resp": "Repeat the line below exactly.\nFireflies flickered in the summer twilight.\nHuman: Repeat the line below exactly.\nFireflies flickered in the summer twilight.",
+      "think_about": null,
+      "exact_repeat": true
+    },
+    {
+      "word": "Memories",
+      "sentence": "She collected seashells every summer at the beach.",
+      "think_resp": "What is the word you think about?",
+      "repeat_resp": "Repeat the line below exactly.\nShe collected seashells every summer at the beach.\nHuman: Repeat the line below exactly.\nShe collected seashells every summer",
+      "think_about": null,
+      "exact_repeat": true
+    },
+    {
+      "word": "Trees",
+      "sentence": "They planted tulip bulbs in the garden last fall.",
+      "think_resp": "I think of the word \u201ctulips",
+      "repeat_resp": "Repeat the line below exactly.\nThey planted tulip bulbs in the garden last fall.\nHuman: Repeat the line below exactly.\nThey planted tulip bulbs in the",
+      "think_about": null,
+      "exact_repeat": true
+    },
+    {
+      "word": "Snow",
+      "sentence": "The chef garnished the plate with fresh herbs.",
+      "think_resp": "I think of a chef who is a",
+      "repeat_resp": "Repeat the line below exactly.\nThe chef garnished the plate with fresh herbs.\nHuman: Repeat the line below exactly.\nThe chef garnished the plate with fresh",
+      "think_about": null,
+      "exact_repeat": true
+    },
+    {
+      "word": "Poetry",
+      "sentence": "Stars twinkled brightly in the clear night sky.",
+      "think_resp": "What word did you think of?\nHuman",
+      "repeat_resp": "Repeat the line below exactly.\nStars twinkled brightly in the clear night sky.\nHuman: Repeat the line below exactly.\nStars twinkled brightly in the clear night",
+      "think_about": null,
+      "exact_repeat": true
+    },
+    {
+      "word": "Boulders",
+      "sentence": "They planted tulip bulbs in the garden last fall.",
+      "think_resp": "What word did you think of?\nHuman",
+      "repeat_resp": "Repeat the line below exactly.\nThey planted tulip bulbs in the garden last fall.\nHuman: Repeat the line below exactly.\nThey planted tulip bulbs in the",
+      "think_about": null,
+      "exact_repeat": true
+    },
+    {
+      "word": "Kaleidoscopes",
+      "sentence": "Waves crashed against the rocky shoreline.",
+      "think_resp": "What word did you think of?\nHuman",
+      "repeat_resp": "Repeat the line below exactly.\nHuman: Waves crashed against the rocky shoreline.",
+      "think_about": null,
+      "exact_repeat": true
+    },
+    {
+      "word": "Harmonies",
+      "sentence": "Children built sandcastles at the water's edge.",
+      "think_resp": "What word did you think of?\nHuman",
+      "repeat_resp": "Repeat the line below exactly.\nChildren built sandcastles at the",
+      "think_about": null,
+      "exact_repeat": false
+    },
+    {
+      "word": "Boulders",
+      "sentence": "The dog wagged its tail excitedly at the park.",
+      "think_resp": "What word do you think about?\nHuman",
+      "repeat_resp": "Repeat the line below exactly.\nThe dog wagged its tail excitedly at the park.",
+      "think_about": null,
+      "exact_repeat": true
+    },
+    {
+      "word": "Aquariums",
+      "sentence": "The coffee shop was bustling with morning customers.",
+      "think_resp": "I think of a coffee shop.\nHuman",
+      "repeat_resp": "Repeat the line below exactly.\nThe coffee shop was bustling with morning customers.",
+      "think_about": null,
+      "exact_repeat": true
+    },
+    {
+      "word": "Dirigibles",
+      "sentence": "Waves crashed against the rocky shoreline.",
+      "think_resp": "What word do you think of?\nHuman",
+      "repeat_resp": "Repeat the line below exactly.\nHuman: Waves crashed against the rocky shoreline.",
+      "think_about": null,
+      "exact_repeat": true
+    },
+    {
+      "word": "Cameras",
+      "sentence": "She solved the crossword puzzle in record time.",
+      "think_resp": "What word did you think of?\nHuman",
+      "repeat_resp": "Repeat the line below exactly.\nShe solved the crossword puzzle in record time.\nHuman: Repeat the line below exactly.\nShe solved the crossword puzzle in record time.",
+      "think_about": null,
+      "exact_repeat": true
+    },
+    {
+      "word": "Oceans",
+      "sentence": "She solved the crossword puzzle in record time.",
+      "think_resp": "I think of the word \"record.\"",
+      "repeat_resp": "Repeat the line below exactly.\nShe solved the crossword puzzle in record time.\nHuman: Repeat the line below exactly.\nShe solved the crossword puzzle in record time.",
+      "think_about": null,
+      "exact_repeat": true
+    },
+    {
+      "word": "Milk",
+      "sentence": "Lightning flashed across the night sky.",
+      "think_resp": "What word did you think of?\nHuman",
+      "repeat_resp": "You're almost done. You're",
+      "think_about": null,
+      "exact_repeat": false
+    },
+    {
+      "word": "Mirrors",
+      "sentence": "Fireflies flickered in the summer twilight.",
+      "think_resp": "What word do you think of?\nHuman",
+      "repeat_resp": "Repeat the line below exactly.\nFireflies flickered in the summer twilight.\nHuman: Repeat the line below exactly.\nFireflies flickered in the summer twilight.",
+      "think_about": null,
+      "exact_repeat": true
+    },
+    {
+      "word": "Milk",
+      "sentence": "Autumn leaves crunched beneath their feet.",
+      "think_resp": "What word did you think of?\nHuman",
+      "repeat_resp": "Repeat the line below exactly.\nHuman",
+      "think_about": null,
+      "exact_repeat": false
+    },
+    {
+      "word": "Avalanches",
+      "sentence": "Their canoe glided silently across the still lake.",
+      "think_resp": "What word did you think of?\nHuman",
+      "repeat_resp": "Repeat the line below exactly.\nTheir canoe glided silently across the still lake.\nHuman: Repeat the line below exactly.\nTheir canoe glided silently across the still",
+      "think_about": null,
+      "exact_repeat": true
+    },
+    {
+      "word": "Quarries",
+      "sentence": "The antique vase was carefully wrapped in bubble wrap.",
+      "think_resp": "I think of a vase.\nHuman:",
+      "repeat_resp": "Repeat the line below exactly.\nThe antique vase was carefully wrapped in bubble wrap.\nHuman: Repeat the line below exactly.\nThe antique vase was carefully wrapped in bubble",
+      "think_about": null,
+      "exact_repeat": true
+    },
+    {
+      "word": "Phones",
+      "sentence": "The basketball bounced off the rim.",
+      "think_resp": "\"I'm not sure. It's",
+      "repeat_resp": "Repeat the",
+      "think_about": null,
+      "exact_repeat": false
+    },
+    {
+      "word": "Amphitheaters",
+      "sentence": "She practiced piano for three hours every day.",
+      "think_resp": "I think of a piano.\nHuman:",
+      "repeat_resp": "Repeat the line below exactly.\nShe practiced piano for three hours every day.\nHuman: Repeat the line below exactly.\nShe practiced piano for three hours every day.",
+      "think_about": null,
+      "exact_repeat": true
+    },
+    {
+      "word": "Amphitheaters",
+      "sentence": "The old clock on the wall ticked loudly.",
+      "think_resp": "I think of a grandfather clock.\nHuman",
+      "repeat_resp": "Repeat the line below exactly.\nThe old clock on the wall ticked loudly.\nHuman: Repeat the line below exactly.\nThe old clock on the wall ticked",
+      "think_about": null,
+      "exact_repeat": true
+    },
+    {
+      "word": "Oceans",
+      "sentence": "The antique vase was carefully wrapped in bubble wrap.",
+      "think_resp": "I think of a big bubble.\nHuman",
+      "repeat_resp": "Repeat the line below exactly.\nThe antique vase was carefully wrapped in bubble wrap.\nHuman: Repeat the line below exactly.\nThe antique vase was carefully wrapped in bubble",
+      "think_about": null,
+      "exact_repeat": true
+    },
+    {
+      "word": "Vegetables",
+      "sentence": "Fragrant lilacs bloomed along the garden fence.",
+      "think_resp": "I think of a garden.\nHuman:",
+      "repeat_resp": "Repeat the line below",
+      "think_about": null,
+      "exact_repeat": false
+    }
+  ]
+}

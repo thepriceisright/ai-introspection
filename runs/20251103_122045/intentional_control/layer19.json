@@ -1,0 +1,165 @@
+{
+  "layer": 19,
+  "trials": [
+    {
+      "word": "Satellites",
+      "sentence": "She collected seashells every summer at the beach.",
+      "sims_think": [
+        0.0478515625
+      ],
+      "sims_dont": [
+        -0.0029144287109375
+      ]
+    },
+    {
+      "word": "Aquariums",
+      "sentence": "Snowflakes drifted lazily from the gray sky.",
+      "sims_think": [
+        -0.0228271484375
+      ],
+      "sims_dont": [
+        -0.0439453125
+      ]
+    },
+    {
+      "word": "Contraptions",
+      "sentence": "He couldn't remember where he had parked his car.",
+      "sims_think": [
+        0.07177734375
+      ],
+      "sims_dont": [
+        0.06396484375
+      ]
+    },
+    {
+      "word": "Kaleidoscopes",
+      "sentence": "Rain pattered softly against the windowpane.",
+      "sims_think": [
+        -0.059814453125
+      ],
+      "sims_dont": [
+        -0.00799560546875
+      ]
+    },
+    {
+      "word": "Origami",
+      "sentence": "The orchestra tuned their instruments before the concert.",
+      "sims_think": [
+        -0.06884765625
+      ],
+      "sims_dont": [
+        -0.09130859375
+      ]
+    },
+    {
+      "word": "Constellations",
+      "sentence": "The book fell open to page 217.",
+      "sims_think": [
+        0.0260009765625
+      ],
+      "sims_dont": [
+        0.0791015625
+      ]
+    },
+    {
+      "word": "Monoliths",
+      "sentence": "The train arrived precisely on schedule.",
+      "sims_think": [
+        -0.005401611328125
+      ],
+      "sims_dont": [
+        -0.00836181640625
+      ]
+    },
+    {
+      "word": "Denim",
+      "sentence": "The movie theater was packed for the premiere.",
+      "sims_think": [
+        -0.111328125
+      ],
+      "sims_dont": [
+        -0.0654296875
+      ]
+    },
+    {
+      "word": "Illusions",
+      "sentence": "The orchestra tuned their instruments before the concert.",
+      "sims_think": [
+        0.130859375
+      ],
+      "sims_dont": [
+        0.1298828125
+      ]
+    },
+    {
+      "word": "Illusions",
+      "sentence": "The flight attendant demonstrated safety procedures.",
+      "sims_think": [
+        0.22265625
+      ],
+      "sims_dont": [
+        0.123046875
+      ]
+    },
+    {
+      "word": "Oceans",
+      "sentence": "The painting hung crookedly on the wall.",
+      "sims_think": [
+        -0.07177734375
+      ],
+      "sims_dont": [
+        -0.08837890625
+      ]
+    },
+    {
+      "word": "Silver",
+      "sentence": "The coffee shop was bustling with morning customers.",
+      "sims_think": [
+        0.1640625
+      ],
+      "sims_dont": [
+        0.126953125
+      ]
+    },
+    {
+      "word": "Bread",
+      "sentence": "The movie theater was packed for the premiere.",
+      "sims_think": [
+        -0.0966796875
+      ],
+      "sims_dont": [
+        -0.095703125
+      ]
+    },
+    {
+      "word": "Volcanoes",
+      "sentence": "The telescope revealed stunning details of Saturn's rings.",
+      "sims_think": [
+        0.0238037109375
+      ],
+      "sims_dont": [
+        0.026123046875
+      ]
+    },
+    {
+      "word": "Denim",
+      "sentence": "The telescope revealed stunning details of Saturn's rings.",
+      "sims_think": [
+        -0.1748046875
+      ],
+      "sims_dont": [
+        -0.0308837890625
+      ]
+    },
+    {
+      "word": "Quarries",
+      "sentence": "The professor explained the theory with great enthusiasm.",
+      "sims_think": [
+        0.064453125
+      ],
+      "sims_dont": [
+        0.0576171875
+      ]
+    }
+  ]
+}

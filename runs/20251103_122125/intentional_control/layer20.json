@@ -1,0 +1,165 @@
+{
+  "layer": 20,
+  "trials": [
+    {
+      "word": "Satellites",
+      "sentence": "Wind chimes tinkled melodically on the porch.",
+      "sims_think": [
+        -0.01556396484375
+      ],
+      "sims_dont": [
+        -0.034423828125
+      ]
+    },
+    {
+      "word": "Kaleidoscopes",
+      "sentence": "The train arrived precisely on schedule.",
+      "sims_think": [
+        -0.0693359375
+      ],
+      "sims_dont": [
+        -0.07763671875
+      ]
+    },
+    {
+      "word": "Blood",
+      "sentence": "The old photograph brought back forgotten memories.",
+      "sims_think": [
+        -0.109375
+      ],
+      "sims_dont": [
+        0.0037078857421875
+      ]
+    },
+    {
+      "word": "Deserts",
+      "sentence": "The book fell open to page 217.",
+      "sims_think": [
+        0.0260009765625
+      ],
+      "sims_dont": [
+        0.16015625
+      ]
+    },
+    {
+      "word": "Blood",
+      "sentence": "He couldn't remember where he had parked his car.",
+      "sims_think": [
+        -0.048828125
+      ],
+      "sims_dont": [
+        -0.050537109375
+      ]
+    },
+    {
+      "word": "Secrecy",
+      "sentence": "He sketched the landscape with charcoal pencils.",
+      "sims_think": [
+        -0.023681640625
+      ],
+      "sims_dont": [
+        -0.0019683837890625
+      ]
+    },
+    {
+      "word": "Trumpets",
+      "sentence": "Fresh bread was baking in the oven.",
+      "sims_think": [
+        0.030029296875
+      ],
+      "sims_dont": [
+        0.01202392578125
+      ]
+    },
+    {
+      "word": "Dynasties",
+      "sentence": "Their canoe glided silently across the still lake.",
+      "sims_think": [
+        0.134765625
+      ],
+      "sims_dont": [
+        0.140625
+      ]
+    },
+    {
+      "word": "Mirrors",
+      "sentence": "The professor explained the theory with great enthusiasm.",
+      "sims_think": [
+        0.09423828125
+      ],
+      "sims_dont": [
+        0.049560546875
+      ]
+    },
+    {
+      "word": "Dust",
+      "sentence": "She tied her hiking boots with double knots.",
+      "sims_think": [
+        -0.1279296875
+      ],
+      "sims_dont": [
+        -0.033203125
+      ]
+    },
+    {
+      "word": "Phones",
+      "sentence": "The train arrived precisely on schedule.",
+      "sims_think": [
+        0.119140625
+      ],
+      "sims_dont": [
+        0.12158203125
+      ]
+    },
+    {
+      "word": "Algorithms",
+      "sentence": "The professor explained the theory with great enthusiasm.",
+      "sims_think": [
+        -0.07666015625
+      ],
+      "sims_dont": [
+        -0.0859375
+      ]
+    },
+    {
+      "word": "Fountains",
+      "sentence": "The dog wagged its tail excitedly at the park.",
+      "sims_think": [
+        0.0654296875
+      ],
+      "sims_dont": [
+        0.02978515625
+      ]
+    },
+    {
+      "word": "Deserts",
+      "sentence": "The dog wagged its tail excitedly at the park.",
+      "sims_think": [
+        0.1298828125
+      ],
+      "sims_dont": [
+        0.0712890625
+      ]
+    },
+    {
+      "word": "Avalanches",
+      "sentence": "He sketched the landscape with charcoal pencils.",
+      "sims_think": [
+        -0.040283203125
+      ],
+      "sims_dont": [
+        -0.047607421875
+      ]
+    },
+    {
+      "word": "Caverns",
+      "sentence": "The flight attendant demonstrated safety procedures.",
+      "sims_think": [
+        0.171875
+      ],
+      "sims_dont": [
+        0.10693359375
+      ]
+    }
+  ]
+}
