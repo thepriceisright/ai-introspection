@@ -97,13 +97,41 @@ def _anthropic_chat(messages, model, temperature=0.0, max_tokens=256):
 
 def _openai_chat(messages, model, temperature=0.0, max_tokens=256):
     from openai import BadRequestError, OpenAI
-    client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
+
     if model.lower().startswith("gpt-5") and abs(temperature - 1.0) > 1e-6:
         warnings.warn(
             f"OpenAI model '{model}' requires temperature=1.0; overriding provided value {temperature}.",
             RuntimeWarning,
         )
         temperature = 1.0
+
+    client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
+    user_text = messages[-1]["content"]
+
+    # Preferred path: Responses API with JSON output (supported by gpt-5 family).
+    try:
+        resp = client.responses.create(
+            model=model,
+            input=[{"role": "user", "content": user_text}],
+            temperature=temperature,
+            max_output_tokens=max_tokens,
+            response_format={"type": "json_object"},
+        )
+        return resp.output_text
+    except BadRequestError as err:
+        param = getattr(err, "param", None)
+        message = str(err)
+        try:
+            body = getattr(err, "body", None)
+            if isinstance(body, dict):
+                message = body.get("error", {}).get("message", message)
+                param = body.get("error", {}).get("param", param)
+        except Exception:
+            pass
+        # Fall back to Chat Completions if the model does not support Responses.
+        if (param or "").lower() not in {"response_format", "max_output_tokens"} and "response_format" not in message:
+            raise
+
     try:
         resp = client.chat.completions.create(
             model=model,
@@ -111,6 +139,7 @@ def _openai_chat(messages, model, temperature=0.0, max_tokens=256):
             temperature=temperature,
             max_tokens=max_tokens,
         )
+        return resp.choices[0].message.content
     except BadRequestError as err:
         param = getattr(err, "param", None)
         message = str(err)
@@ -129,7 +158,7 @@ def _openai_chat(messages, model, temperature=0.0, max_tokens=256):
             temperature=temperature,
             max_completion_tokens=max_tokens,
         )
-    return resp.choices[0].message.content
+        return resp.choices[0].message.content
 
 def _openrouter_chat(messages, model, temperature=0.0, max_tokens=256):
     import httpx, os

@@ -17,7 +17,7 @@ pip install --upgrade pip
 pip install -r requirements.txt
 
 # 3) Create a .env file with your API credentials (see below)
-touch .env  # edit and add the keys you need
+touch .env  # edit and add the keys you need; sample keys listed below
 ```
 
 ### Environment variables
@@ -34,6 +34,11 @@ HUGGINGFACEHUB_API_TOKEN="hf_..."
 Any of the following keys can be used for the Hugging Face token: `HUGGINGFACEHUB_API_TOKEN`, `HUGGINGFACE_TOKEN`, `HF_TOKEN`, `HF_API_TOKEN`. The loader normalises whichever one you set so `HUGGINGFACEHUB_API_TOKEN` is always populated, and the token is passed to `transformers` when downloading gated checkpoints (e.g. Llama-3).
 
 > **Tip:** If you add new keys to `.env`, rerun the “Load environment variables” cell in the notebooks so they are picked up by the kernel.
+
+#### Judge-specific notes
+
+- OpenAI gpt-5 models require `temperature=1.0` and expect JSON-formatted responses; our judge client handles this automatically. Ensure `OPENAI_API_KEY` is present in `.env`.
+- Anthropic (`anthropic>=0.32.0`) and OpenRouter judges likewise pick up their keys from `.env`.
 
 ### Using the notebooks
 
@@ -52,9 +57,26 @@ If the kernel is not using `.venv`, the cell prints a warning and still adds the
 If you change judge settings (e.g. swap models or tweak prompts) you can re-run the grading stage on already-generated trials without regenerating completions:
 
 ```bash
+# Injected thoughts
 python -m src.introspect_repro.tools.regrade_runs \
   --task injected_thoughts \
   --run-dir runs/<timestamp>/injected_thoughts \
+  --judge-provider openai \
+  --judge-model gpt-5-mini \
+  --judge-temperature 1.0
+
+# Thought vs text
+python -m src.introspect_repro.tools.regrade_runs \
+  --task thought_vs_text \
+  --run-dir runs/<timestamp>/thought_vs_text \
+  --judge-provider openai \
+  --judge-model gpt-5-mini \
+  --judge-temperature 1.0
+
+# Prefill intention
+python -m src.introspect_repro.tools.regrade_runs \
+  --task prefill_intention \
+  --run-dir runs/<timestamp>/prefill_intention \
   --judge-provider openai \
   --judge-model gpt-5-mini \
   --judge-temperature 1.0
