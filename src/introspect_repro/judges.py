@@ -96,7 +96,7 @@ def _anthropic_chat(messages, model, temperature=0.0, max_tokens=256):
     return resp.content[0].text
 
 def _openai_chat(messages, model, temperature=0.0, max_tokens=256):
-    from openai import BadRequestError, OpenAI
+    from openai import BadRequestError, RateLimitError, OpenAI
 
     if model.lower().startswith("gpt-5") and abs(temperature - 1.0) > 1e-6:
         warnings.warn(
@@ -108,64 +108,135 @@ def _openai_chat(messages, model, temperature=0.0, max_tokens=256):
     client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
     user_text = messages[-1]["content"]
 
-    # Preferred path: Responses API with JSON output (supported by gpt-5 family).
-    response_kwargs = {
-        "model": model,
-        "input": [{"role": "user", "content": user_text}],
-        "temperature": temperature,
-        "max_output_tokens": max_tokens,
-    }
-    try:
-        try:
-            resp = client.responses.create(
-                **response_kwargs,
-                response_format={"type": "json_object"},
-            )
-        except TypeError:
-            # Older client versions do not support response_format; retry without it.
-            resp = client.responses.create(**response_kwargs)
-        return resp.output_text
-    except BadRequestError as err:
-        param = getattr(err, "param", None)
+    def _handle_openai_error(err):
+        """Extract error message and code from OpenAI error."""
         message = str(err)
+        error_code = None
+        error_type = None
         try:
             body = getattr(err, "body", None)
             if isinstance(body, dict):
-                message = body.get("error", {}).get("message", message)
-                param = body.get("error", {}).get("param", param)
+                error_info = body.get("error", {})
+                message = error_info.get("message", message)
+                error_code = error_info.get("code")
+                error_type = error_info.get("type")
         except Exception:
             pass
-        # Fall back to Chat Completions if the model does not support Responses.
-        if (param or "").lower() not in {"response_format", "max_output_tokens"} and "response_format" not in message:
-            raise
+        return message, error_code, error_type
 
-    try:
-        resp = client.chat.completions.create(
-            model=model,
-            messages=messages,
-            temperature=temperature,
-            max_tokens=max_tokens,
-        )
-        return resp.choices[0].message.content
-    except BadRequestError as err:
-        param = getattr(err, "param", None)
-        message = str(err)
-        try:
-            body = getattr(err, "body", None)
-            if isinstance(body, dict):
-                message = body.get("error", {}).get("message", message)
-                param = body.get("error", {}).get("param", param)
-        except Exception:
-            pass
-        if (param or "").lower() != "max_tokens" and "max_tokens" not in message:
-            raise
-        resp = client.chat.completions.create(
-            model=model,
-            messages=messages,
-            temperature=temperature,
-            max_completion_tokens=max_tokens,
-        )
-        return resp.choices[0].message.content
+    def _make_responses_api_call(with_json_format=True):
+        """Make a call to the Responses API with retry logic."""
+        response_kwargs = {
+            "model": model,
+            "input": [{"role": "user", "content": user_text}],
+            "temperature": temperature,
+            "max_output_tokens": max_tokens,
+        }
+        if with_json_format:
+            response_kwargs["response_format"] = {"type": "json_object"}
+        
+        max_retries = 3
+        base_delay = 1.0
+        
+        for attempt in range(max_retries):
+            try:
+                resp = client.responses.create(**response_kwargs)
+                return resp.output_text
+            except RateLimitError as err:
+                message, error_code, error_type = _handle_openai_error(err)
+                # Check if it's a quota error (non-retryable)
+                if error_type == "insufficient_quota" or "quota" in message.lower():
+                    raise RuntimeError(
+                        f"OpenAI API quota exceeded. Please check your billing and plan details.\n"
+                        f"Error: {message}\n"
+                        f"For more information, see: https://platform.openai.com/docs/guides/error-codes/api-errors"
+                    ) from err
+                # Rate limit error - retry with exponential backoff
+                if attempt < max_retries - 1:
+                    delay = base_delay * (2 ** attempt)
+                    warnings.warn(
+                        f"Rate limit hit, retrying in {delay:.1f}s (attempt {attempt + 1}/{max_retries})",
+                        RuntimeWarning,
+                    )
+                    time.sleep(delay)
+                else:
+                    raise RuntimeError(
+                        f"OpenAI API rate limit exceeded after {max_retries} attempts.\n"
+                        f"Error: {message}"
+                    ) from err
+            except TypeError:
+                # Older client versions do not support response_format; retry without it.
+                if with_json_format:
+                    return _make_responses_api_call(with_json_format=False)
+                raise
+            except BadRequestError as err:
+                param = getattr(err, "param", None)
+                message, _, _ = _handle_openai_error(err)
+                # Fall back to Chat Completions if the model does not support Responses.
+                if (param or "").lower() not in {"response_format", "max_output_tokens"} and "response_format" not in message:
+                    raise
+                # Intentional fall-through to try Chat Completions API
+                break
+        return None
+
+    def _make_chat_completions_api_call(use_max_completion_tokens=False):
+        """Make a call to the Chat Completions API with retry logic."""
+        max_retries = 3
+        base_delay = 1.0
+        
+        for attempt in range(max_retries):
+            try:
+                kwargs = {
+                    "model": model,
+                    "messages": messages,
+                    "temperature": temperature,
+                }
+                if use_max_completion_tokens:
+                    kwargs["max_completion_tokens"] = max_tokens
+                else:
+                    kwargs["max_tokens"] = max_tokens
+                
+                resp = client.chat.completions.create(**kwargs)
+                return resp.choices[0].message.content
+            except RateLimitError as err:
+                message, error_code, error_type = _handle_openai_error(err)
+                # Check if it's a quota error (non-retryable)
+                if error_type == "insufficient_quota" or "quota" in message.lower():
+                    raise RuntimeError(
+                        f"OpenAI API quota exceeded. Please check your billing and plan details.\n"
+                        f"Error: {message}\n"
+                        f"For more information, see: https://platform.openai.com/docs/guides/error-codes/api-errors"
+                    ) from err
+                # Rate limit error - retry with exponential backoff
+                if attempt < max_retries - 1:
+                    delay = base_delay * (2 ** attempt)
+                    warnings.warn(
+                        f"Rate limit hit, retrying in {delay:.1f}s (attempt {attempt + 1}/{max_retries})",
+                        RuntimeWarning,
+                    )
+                    time.sleep(delay)
+                else:
+                    raise RuntimeError(
+                        f"OpenAI API rate limit exceeded after {max_retries} attempts.\n"
+                        f"Error: {message}"
+                    ) from err
+            except BadRequestError as err:
+                param = getattr(err, "param", None)
+                message, _, _ = _handle_openai_error(err)
+                if (param or "").lower() != "max_tokens" and "max_tokens" not in message:
+                    raise
+                # Try with max_completion_tokens instead
+                if not use_max_completion_tokens:
+                    return _make_chat_completions_api_call(use_max_completion_tokens=True)
+                raise
+
+    # Try Responses API first (for gpt-5 family)
+    result = _make_responses_api_call()
+    if result is not None:
+        return result
+
+    # Fall back to Chat Completions API
+    return _make_chat_completions_api_call()
 
 def _openrouter_chat(messages, model, temperature=0.0, max_tokens=256):
     import httpx, os
