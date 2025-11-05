@@ -247,12 +247,52 @@ def _openrouter_chat(messages, model, temperature=0.0, max_tokens=256):
     }
     data = {"model": model, "messages": messages,
             "temperature": temperature, "max_tokens": max_tokens}
-    with httpx.Client(timeout=120) as client:
-        r = client.post("https://openrouter.ai/api/v1/chat/completions",
-                        headers=headers, json=data)
-        r.raise_for_status()
-        j = r.json()
-        return j["choices"][0]["message"]["content"]
+    
+    max_retries = 5
+    base_delay = 1.0
+    
+    for attempt in range(max_retries):
+        try:
+            with httpx.Client(timeout=120) as client:
+                r = client.post("https://openrouter.ai/api/v1/chat/completions",
+                                headers=headers, json=data)
+                r.raise_for_status()
+                j = r.json()
+                return j["choices"][0]["message"]["content"]
+        except (httpx.RemoteProtocolError, httpx.ConnectError, httpx.ReadTimeout, 
+                httpx.NetworkError, httpx.ConnectTimeout) as err:
+            # Network errors - retry with exponential backoff
+            if attempt < max_retries - 1:
+                delay = base_delay * (2 ** attempt)
+                warnings.warn(
+                    f"OpenRouter network error (attempt {attempt + 1}/{max_retries}): {type(err).__name__}. "
+                    f"Retrying in {delay:.1f}s...",
+                    RuntimeWarning,
+                )
+                time.sleep(delay)
+            else:
+                raise RuntimeError(
+                    f"OpenRouter API request failed after {max_retries} attempts due to network error.\n"
+                    f"Error: {type(err).__name__}: {str(err)}"
+                ) from err
+        except httpx.HTTPStatusError as err:
+            # HTTP error status codes (4xx, 5xx) - check if retryable
+            status_code = err.response.status_code if hasattr(err, 'response') else None
+            if status_code and status_code >= 500 and attempt < max_retries - 1:
+                # Server errors (5xx) are retryable
+                delay = base_delay * (2 ** attempt)
+                warnings.warn(
+                    f"OpenRouter server error {status_code} (attempt {attempt + 1}/{max_retries}). "
+                    f"Retrying in {delay:.1f}s...",
+                    RuntimeWarning,
+                )
+                time.sleep(delay)
+            else:
+                # Client errors (4xx) or final attempt - don't retry
+                raise RuntimeError(
+                    f"OpenRouter API returned error status {status_code}.\n"
+                    f"Error: {str(err)}"
+                ) from err
 
 def _call_llm(provider, model, user_text, temperature=0.0, max_tokens=256):
     messages = [{"role":"user","content": user_text}]
